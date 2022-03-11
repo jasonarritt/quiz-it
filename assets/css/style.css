@@ -1,0 +1,91 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root {
+    --bg-neutral: rgba(0, 0, 255, 1);
+    --bg-correct: rgba(0, 255, 0, 1);
+    --bg-wrong: rgba(255, 0, 0, 1);
+    --btn-default: rgb(20, 13, 87);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    --bg-color: var(--bg-neutral);
+    background-color: var(--bg-color);
+}
+
+body.correct {
+    --bg-color: var(--bg-correct);
+}
+
+body.wrong {
+    --bg-color: var(--bg-wrong);
+}
+
+.quiz-container {
+    width: 750px;
+    max-width: 90%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: 5px solid rgba(0, 0, 0, 1);
+    padding: 10px;
+    margin: 15px;
+}
+
+.option-btns {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5px;
+}
+
+.btn {
+    --bg-color: var(--btn-default);
+    background-color: var(--bg-color);
+    border: 1px solid rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    color:rgba(255, 255, 255, 1);
+    padding: 2px;
+}
+
+.btn:hover {
+    --text-color: var(--btn-default);
+    background-color: rgba(255, 255, 255, 1);
+    color: var(--btn-default);
+}
+
+.btn.correct {
+    --bg-color: var(--bg-correct);
+    color:rgba(0, 0, 0, 1);
+}
+
+.btn.wrong {
+    --bg-color: var(--bg-wrong);
+    color: rgba(0, 0, 0, 1);
+}
+
+.begin-btn, .next-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.hidden {
+    display: none;
+}
+
+#highscores {
+    margin: 10px;
+}
+
+h1 {
+    color: rgba(255, 255, 255, 1);
+}
