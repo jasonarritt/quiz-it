@@ -22,16 +22,16 @@ body {
     --bg-color: var(--bg-neutral);
     background-color: var(--bg-color);
 }
-
+/* 
 body.correct {
     --bg-color: var(--bg-correct);
 }
 
 body.wrong {
     --bg-color: var(--bg-wrong);
-}
+} */
 
-.quiz-container {
+#quiz-container {
     width: 750px;
     max-width: 90%;
     background-color: rgba(255, 255, 255, 0.8);
@@ -88,4 +88,9 @@ body.wrong {
 
 h1 {
     color: rgba(255, 255, 255, 1);
+}
+
+#question {
+    padding: 10px;
+    margin: 10px;
 }

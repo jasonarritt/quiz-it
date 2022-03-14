@@ -10,17 +10,20 @@
 
 <body class="">
     <h1>Quiz It</h1>
+
+    <!-- Control buttons begin -->
     <div id="control-buttons">
         <button id="begin-button" class="begin-btn btn">Begin</button>
         <button id="next-button" class="next-btn btn hidden">Next</button>
     </div>
+    <!-- Control buttons end -->
 
-    <div class="quiz-container hidden">
-
+    <!-- Quiz container begin -->
+    <div id="quiz-container" class="hidden">
         <div id="timer-container">
-            Remaining time: <span id="remaining-time" class="timer">00:00</span>
+            <span id="timer-prompt">Remaining time: </span><span id="timer" class="timer">00:00</span>
         </div>
-        <div id="question container" class="question-ctnr hidden">
+        <div id="question-container" class="question-ctnr">
             <div id="question">Quiz Question</div>
         </div>
         <div id="option-buttons" class="option-btns">
@@ -29,11 +32,14 @@
             <button id="option-3" class="option btn">Option 3</button>
             <button id="option-4" class="option btn">Option 4</button>
         </div>
-
-        </div>
-        <div id="highscores">
-            <button id="highscores-button" class="highscores-btn btn">View High Scores</button>
     </div>
+    <!-- Quiz container end -->
+
+    <!-- Highscores container begin -->
+    <div id="highscores">
+        <button id="highscores-button" class="highscores-btn btn">View High Scores</button>
+    </div>
+    <!-- Highscores container end -->
     
     <script src="./assets/js/script.js"></script>
 </body>
