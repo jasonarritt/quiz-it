@@ -5,11 +5,14 @@ var questionEl = document.getElementById('question');
 var optionButtonsEl = document.getElementById('option-buttons');
 var timerSpanEl = document.getElementById('timer');
 var timerPromptSpanEl = document.getElementById('timer-prompt');
+var highscoresButtonEl = document.getElementById('highscores-button');
+var scoresListEl = document.getElementById('scores-list');
 var remainingTime = 10;
 timerSpanEl.innerText = remainingTime;
 var mixedQuestions;
 var currentQuestionIndex;
 var finalTime = 0;
+var highScores = [];
 
 var questionList = [
     {
@@ -78,7 +81,7 @@ function startTimer() {
             remainingTime = 0,
             endQuiz();
         }
-    }, 1000)
+    }, 1000);
 }
 
 function startQuiz() {
@@ -152,9 +155,39 @@ function optionSelect(event) {
     }
 }
 
-function restartQuiz() {
-    location.reload();
+function saveScore(finalTime) {
+    let personalIdentifier = prompt("Your final time is " + finalTime + ". Enter an identifier to store your score.");
+    console.log(personalIdentifier, finalTime);
+
+    if (!personalIdentifier) {
+        return;
+    }
+
+    viewScores();
 }
+
+function viewScores(highscoresData) {
+    scoresListEl.classList.remove('hidden');
+
+    var newHighscoresData = JSON.parse(localStorage.getItem("highscores") || "[]");
+
+    if (highscoresData) {
+        newHighscoresData.push(highscoresData);
+        localStorage.setItem("highscores", JSON.stringify(newHighscoresData));
+    }
+
+    for (i = 0; i < newHighscoresData; i++) {
+        var data = newHighscoresData[i];
+        var li = document.createElement('li');
+        li.innerText = data.personalIdentifier + ": " + data.finalTime;
+        scoresListEl.appendChild('li');
+
+    }
+}
+
+// function restartQuiz() {
+//     location.reload();
+// }
 
 function endQuiz() {
     if (remainingTime) {
@@ -168,5 +201,8 @@ function endQuiz() {
     optionButtonsEl.classList.add('hidden');
     beginButtonEl.innerText = 'Go Again';
     beginButtonEl.classList.remove('hidden');
+    saveScore(finalTime);
     // beginButtonEl.addEventListener('click', restartQuiz());
 }
+
+highscoresButtonEl.addEventListener("click", viewScores);
