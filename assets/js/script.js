@@ -88,7 +88,7 @@ function startQuiz() {
     mixedQuestions = questionList.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
     quizContainerEl.classList.remove('hidden');
-    startTimer(remainingTime);
+    startTimer();
     setNextQuestion();
 }
 
@@ -150,7 +150,10 @@ function optionSelect(event) {
     } else {
         endQuiz();
     }
+}
 
+function restartQuiz() {
+    location.reload();
 }
 
 function endQuiz() {
@@ -159,12 +162,11 @@ function endQuiz() {
     } else {
         finalTime = 0;
     }
-    console.log(finalTime);
     timerPromptSpanEl.innerText = 'Final Time: ';
     timerSpanEl.innerText = finalTime;
     questionEl.classList.add('hidden');
     optionButtonsEl.classList.add('hidden');
     beginButtonEl.innerText = 'Go Again';
     beginButtonEl.classList.remove('hidden');
-
+    // beginButtonEl.addEventListener('click', restartQuiz());
 }
